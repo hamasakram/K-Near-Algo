@@ -148,8 +148,6 @@ print("\nOptimized Classification Report:\n", classification_report(y_test, y_pr
 
 
 # %%
-
-
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 
@@ -167,16 +165,15 @@ print("Accuracy with specified parameters:", accuracy)
 # Since you know the parameters, there's no need for grid search or training score calculations
 
 
-
 # %%
 #Calculating F1-Score now
 from sklearn.metrics import f1_score
-f1_score(y_test, y_pred_best, average='weighted')
+f1_score(y_test, y_pred, average='weighted')
 
 # %%
 
 # Generate the confusion matrix from the true labels and predicted labels
-conf_matrix = confusion_matrix(y_test, y_pred_best)
+conf_matrix = confusion_matrix(y_test, y_pred)
 
 # Plotting the confusion matrix using Seaborn's heatmap function
 plt.figure(figsize=(8, 6))
