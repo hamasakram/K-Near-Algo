@@ -150,35 +150,22 @@ print("\nOptimized Classification Report:\n", classification_report(y_test, y_pr
 # %%
 
 
-# Defining the parameter grid
-param_grid = {
-    'n_neighbors': [3, 5, 7, 9, 11],
-    'weights': ['uniform', 'distance'],
-    'metric': ['euclidean', 'manhattan', 'minkowski'],
-    'algorithm': ['ball_tree', 'kd_tree', 'brute']
-}
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
 
-# Initializing the KNeighborsClassifier
-knn = KNeighborsClassifier()
+# Configuring the KNeighborsClassifier with specified parameters
+knn = KNeighborsClassifier(n_neighbors=11, weights='distance', algorithm='ball_tree', metric='euclidean')
+knn.fit(X_train, y_train)
 
-# Setting up GridSearchCV
-grid_search = GridSearchCV(knn, param_grid, cv=5, scoring='accuracy', verbose=1, return_train_score=True)
-grid_search.fit(X_train, y_train)
+# Predicting the test set results
+y_pred = knn.predict(X_test)
 
-# Printing best parameters and best cross-validation score
-print("Best parameters:", grid_search.best_params_)
-print("Best cross-validation score: {:.2f}".format(grid_search.best_score_))
+# Evaluating the model
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy with specified parameters:", accuracy)
 
-# Evaluating the model with the best parameters from the grid search
-best_knn = grid_search.best_estimator_
-y_pred_best = best_knn.predict(X_test)
-print("Accuracy with optimized parameters:", accuracy_score(y_test, y_pred_best))
+# Since you know the parameters, there's no need for grid search or training score calculations
 
-# Accessing and printing the mean training scores for each parameter combination
-print("Mean Training Scores:")
-results = grid_search.cv_results_
-for mean_train_score, params in zip(results['mean_train_score'], results['params']):
-    print(params, '->', mean_train_score)
 
 
 # %%
