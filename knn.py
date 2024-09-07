@@ -37,7 +37,7 @@ print(dt.isnull().sum())
 
 # %%
 #cleaning the dataset
-dt=dt.drop(columns=['Unnamed: 32'])
+#dt=dt.drop(columns=['Unnamed: 32'])
 
 # %%
 #Preparing the data for further training
