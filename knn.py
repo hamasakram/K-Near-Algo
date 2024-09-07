@@ -2,7 +2,7 @@
 import pandas as pd
 import pandas as pd
 import numpy as np
-import seaborn as sns
+#import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.model_selection import cross_val_score
 from sklearn.preprocessing import StandardScaler
@@ -66,18 +66,18 @@ print(y.isnull().sum())
 
 
 # %%
-# Histograms of the features
+'''# Histograms of the features
 X.hist(bins=20, figsize=(20, 15))
 plt.show()
-
+'''
 
 # %%
-# Box plots for each feature to identify outliers
+'''# Box plots for each feature to identify outliers
 for column in X.columns:
     plt.figure(figsize=(8, 4))
     sns.boxplot(x=X[column])
     plt.title(f'Box Plot of {column}')
-    plt.show()
+    plt.show()'''
 
 
 # %%
@@ -185,11 +185,11 @@ f1_score(y_test, y_pred_best, average='weighted')
 
 # %%
 import matplotlib.pyplot as plt
-import seaborn as sns
+#import seaborn as sns
 from sklearn.metrics import confusion_matrix
 
 # Generate the confusion matrix from the true labels and predicted labels
-conf_matrix = confusion_matrix(y_test, y_pred_best)
+'''conf_matrix = confusion_matrix(y_test, y_pred_best)
 
 # Plotting the confusion matrix using Seaborn's heatmap function
 plt.figure(figsize=(8, 6))
@@ -197,7 +197,7 @@ sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=['Negati
 plt.title('Confusion Matrix for KNN Classifier')
 plt.ylabel('Actual Label')
 plt.xlabel('Predicted Label')
-plt.show()
+plt.show()'''
 
 
 # %%
