@@ -18,7 +18,7 @@ from sklearn.metrics import confusion_matrix
 
 
 #load dataset
-dt=pd.read_csv("C:/Users/Al-Hussain Com/Downloads/KNNAlgorithmDataset.csv")
+dt=pd.read_csv("KNNAlgorithmDataset.csv")
 print('Successfully read! ')
 
 # %%
